@@ -34,6 +34,7 @@ Ball.prototype.draw = function() {
   ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
   ctx.fill();
 }
+//转向
 Ball.prototype.update = function() {
   if ((this.x + this.size) >= width) {
     this.velX = -(this.velX);
@@ -55,6 +56,7 @@ Ball.prototype.update = function() {
   this.y += this.velY;
 }
 
+//碰撞检测
 Ball.prototype.collisionDetect = function() {
   for (let j = 0; j < balls.length; j++) {
     if (this !== balls[j]) {
@@ -71,6 +73,7 @@ Ball.prototype.collisionDetect = function() {
 
 let balls = [];
 
+//画球
 while (balls.length < 25) {
     let size = random(10, 20);
     let ball = new Ball(
